@@ -1,7 +1,10 @@
+// @ts-check
 import fs from "node:fs/promises";
 import path from "node:path";
 import { preprocessEmbeddedTemplates } from "./preprocess-embedded-templates";
 import { TEMPLATE_TAG_NAME, TEMPLATE_TAG_PLACEHOLDER } from "./util";
+
+const FCCT_EXTENSION = /\.g([jt]s)$/;
 
 export default function firstClassComponentTemplates() {
   return {
@@ -38,8 +41,6 @@ export default function firstClassComponentTemplates() {
     },
   };
 }
-
-const FCCT_EXTENSION = /\.g([jt]s)$/;
 
 function resolutionFor(originalId) {
   return {
