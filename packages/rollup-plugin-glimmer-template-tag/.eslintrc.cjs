@@ -20,6 +20,7 @@ module.exports = {
       files: ['./src/rollup-plugin.js'],
       rules: {
         'n/no-missing-import': 'off',
+        'import/namespace': 'off',
       },
     },
   ],
