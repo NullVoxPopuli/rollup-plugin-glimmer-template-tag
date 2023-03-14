@@ -6,7 +6,8 @@
     "node": "18.15.0"
   },
   "scripts": {
-    "lint": "pnpm --filter '*' lint",
+    "lint": "turbo lint",
+    "test": "turbo test",
     "lint:fix": "pnpm --filter '*' lint:fix"
   },
   "devDependencies": {
