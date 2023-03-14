@@ -5,6 +5,10 @@
   "volta": {
     "node": "18.15.0"
   },
+  "scripts": {
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",

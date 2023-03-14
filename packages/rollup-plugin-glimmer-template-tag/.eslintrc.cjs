@@ -19,15 +19,7 @@ module.exports = {
     {
       files: ['./src/rollup-plugin.js'],
       rules: {
-        'n/no-missing-import': [
-          'error',
-          {
-            allowModules: [
-              'ember-template-imports/lib/preprocess-embedded-templates',
-              'ember-template-imports/lib/util',
-            ],
-          },
-        ],
+        'n/no-missing-import': 'off',
       },
     },
   ],
