@@ -42,36 +42,6 @@ importers:
       rollup: 3.19.1
       typescript: 4.9.5
 
-  packages/test-addon:
-    specifiers:
-      '@nullvoxpopuli/eslint-configs': ^3.1.3
-      eslint: ^8.36.0
-      prettier: ^2.8.4
-      rollup: ^3.19.1
-      rollup-plugin-glimmer-template-tag: workspace:^0.0.1
-    devDependencies:
-      '@nullvoxpopuli/eslint-configs': 3.1.3_a7sjvsbcgg5dveitgz3whbbski
-      eslint: 8.36.0
-      prettier: 2.8.4
-      rollup: 3.19.1
-      rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
-
-  packages/test-addon-js:
-    specifiers:
-      '@embroider/addon-dev': ^3.0.0
-      '@nullvoxpopuli/eslint-configs': ^3.1.3
-      eslint: ^8.36.0
-      prettier: ^2.8.4
-      rollup: ^3.19.1
-      rollup-plugin-glimmer-template-tag: workspace:*
-    devDependencies:
-      '@embroider/addon-dev': 3.0.0_rollup@3.19.1
-      '@nullvoxpopuli/eslint-configs': 3.1.3_a7sjvsbcgg5dveitgz3whbbski
-      eslint: 8.36.0
-      prettier: 2.8.4
-      rollup: 3.19.1
-      rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
-
   packages/test-rollup-addon-gjs:
     specifiers:
       '@babel/core': ^7.21.3
@@ -102,6 +72,55 @@ importers:
       prettier: 2.8.4
       rollup: 3.19.1
       rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
+
+  packages/test-rollup-addon-gts:
+    specifiers:
+      '@babel/core': ^7.21.3
+      '@babel/plugin-proposal-class-properties': ^7.18.6
+      '@babel/plugin-proposal-decorators': ^7.21.0
+      '@babel/preset-typescript': ^7.21.0
+      '@babel/runtime': ^7.21.0
+      '@embroider/addon-dev': ^3.0.0
+      '@embroider/addon-shim': ^1.8.4
+      '@glimmer/component': ^1.1.2
+      '@glint/core': ^1.0.0-beta.3
+      '@glint/environment-ember-loose': ^1.0.0-beta.3
+      '@glint/environment-ember-template-imports': ^1.0.0-beta.3
+      '@glint/template': ^1.0.0-beta.3
+      '@nullvoxpopuli/eslint-configs': ^3.1.3
+      '@tsconfig/ember': ^2.0.0
+      ember-source: ^4.11.0
+      ember-template-imports: ^3.4.1
+      eslint: ^8.36.0
+      prettier: ^2.8.4
+      rollup: ^3.19.1
+      rollup-plugin-glimmer-template-tag: workspace:*
+      rollup-plugin-ts: ^3.2.0
+      typescript: ^4.9.5
+    dependencies:
+      '@embroider/addon-shim': 1.8.4
+    devDependencies:
+      '@babel/core': 7.21.3
+      '@babel/plugin-proposal-class-properties': 7.18.6_@babel+core@7.21.3
+      '@babel/plugin-proposal-decorators': 7.21.0_@babel+core@7.21.3
+      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.3
+      '@babel/runtime': 7.21.0
+      '@embroider/addon-dev': 3.0.0_rollup@3.19.1
+      '@glimmer/component': 1.1.2_@babel+core@7.21.3
+      '@glint/core': 1.0.0-beta.3_typescript@4.9.5
+      '@glint/environment-ember-loose': 1.0.0-beta.3_acn5lxfzqsyvoloees6qvx3wku
+      '@glint/environment-ember-template-imports': 1.0.0-beta.3_vycqboguq2ondhtbsrsjhy7tvi
+      '@glint/template': 1.0.0-beta.3
+      '@nullvoxpopuli/eslint-configs': 3.1.3_3b7uqrz46pxwnmg5xb37zivtia
+      '@tsconfig/ember': 2.0.0
+      ember-source: 4.11.0_wdt64mjlww5fpvzagecura56i4
+      ember-template-imports: 3.4.1
+      eslint: 8.36.0
+      prettier: 2.8.4
+      rollup: 3.19.1
+      rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
+      rollup-plugin-ts: 3.2.0_ydk6ocwts2f26py227ahyuhk5i
+      typescript: 4.9.5
 
 packages:
 
@@ -1544,6 +1563,23 @@ packages:
       esutils: 2.0.3
     dev: true
 
+  /@babel/preset-typescript/7.21.0_@babel+core@7.21.3:
+    resolution: {integrity: sha512-myc9mpoVA5m1rF8K8DgLEatOYFDpwC+RkMkjZ0Du6uI62YvDe8uxIEYVs/VCdSJ097nlALiU/yBC7//3nI+hNg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/core': 7.21.3
+      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/helper-validator-option': 7.21.0
+      '@babel/plugin-transform-typescript': 7.21.3_@babel+core@7.21.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@babel/regjsgen/0.8.0:
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
     dev: true
@@ -2013,6 +2049,97 @@ packages:
       - '@babel/core'
     dev: true
 
+  /@glimmer/vm-babel-plugins/0.84.2_@babel+core@7.21.3:
+    resolution: {integrity: sha512-HS2dEbJ3CgXn56wk/5QdudM7rE3vtNMvPIoG7Rrg+GhkGMNxBCIRxOeEF2g520j9rwlA2LAZFpc7MCDMFbTjNA==}
+    dependencies:
+      babel-plugin-debug-macros: 0.3.4_@babel+core@7.21.3
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: true
+
+  /@glint/core/1.0.0-beta.3_typescript@4.9.5:
+    resolution: {integrity: sha512-4xpo6ugp/DmjyaK/kjo7cu1SLG9jaLqGslb80HXPI+9o7YadSRkHRL1Y0JxGhgTD0IJnB+EzBd8Pc9Oat/stqQ==}
+    hasBin: true
+    peerDependencies:
+      typescript: ^4.8.0
+    dependencies:
+      '@glimmer/syntax': 0.84.2
+      escape-string-regexp: 4.0.0
+      semver: 7.3.8
+      silent-error: 1.1.1
+      typescript: 4.9.5
+      uuid: 8.3.2
+      vscode-languageserver: 8.1.0
+      vscode-languageserver-textdocument: 1.0.8
+      vscode-uri: 3.0.7
+      yargs: 17.7.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@glint/environment-ember-loose/1.0.0-beta.3_acn5lxfzqsyvoloees6qvx3wku:
+    resolution: {integrity: sha512-Aby8penf3PB2VJrp9Ni33ZAcmFz8OpZ3wA2rz9DirOQhGrdDoTxcvNli6wu0R/NBqjjgKhM2WGzbxJ8NRdfdxA==}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glint/template': ^1.0.0-beta.3
+      '@types/ember__array': ^4.0.2
+      '@types/ember__component': ^4.0.10
+      '@types/ember__controller': ^4.0.2
+      '@types/ember__object': ^4.0.4
+      '@types/ember__routing': ^4.0.11
+      ember-cli-htmlbars: ^6.0.1
+      ember-modifier: ^3.2.7 || ^4.0.0
+    peerDependenciesMeta:
+      '@glimmer/component':
+        optional: true
+      '@types/ember__array':
+        optional: true
+      '@types/ember__component':
+        optional: true
+      '@types/ember__controller':
+        optional: true
+      '@types/ember__object':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+      ember-cli-htmlbars:
+        optional: true
+      ember-modifier:
+        optional: true
+    dependencies:
+      '@glimmer/component': 1.1.2_@babel+core@7.21.3
+      '@glint/template': 1.0.0-beta.3
+    dev: true
+
+  /@glint/environment-ember-template-imports/1.0.0-beta.3_vycqboguq2ondhtbsrsjhy7tvi:
+    resolution: {integrity: sha512-k7ryCPOInC3ak1rtQjg79TB1dO9cmJRcseBKWiOMwaVieHk68wZ8St+Izqx6qYmzD9/QtXP48whOB7eqRidg1w==}
+    peerDependencies:
+      '@glint/environment-ember-loose': ^1.0.0-beta.3
+      '@glint/template': ^1.0.0-beta.3
+      '@types/ember__component': ^4.0.10
+      '@types/ember__helper': ^4.0.1
+      '@types/ember__modifier': ^4.0.3
+      '@types/ember__routing': ^4.0.12
+      ember-template-imports: ^3.0.0
+    peerDependenciesMeta:
+      '@types/ember__component':
+        optional: true
+      '@types/ember__helper':
+        optional: true
+      '@types/ember__modifier':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+    dependencies:
+      '@glint/environment-ember-loose': 1.0.0-beta.3_acn5lxfzqsyvoloees6qvx3wku
+      '@glint/template': 1.0.0-beta.3
+      ember-template-imports: 3.4.1
+    dev: true
+
+  /@glint/template/1.0.0-beta.3:
+    resolution: {integrity: sha512-jxn4yGzNZ1A4NGzvjYht0NlVziHyzjj/rm4rGsP1mVUO2Dd/LHhhxR6NUlSw9MFDZ0fCinULVwQtAKQLEpIpPw==}
+    dev: true
+
   /@handlebars/parser/2.0.0:
     resolution: {integrity: sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==}
     dev: true
@@ -2095,6 +2222,10 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
+  /@mdn/browser-compat-data/5.2.42:
+    resolution: {integrity: sha512-CD/2ai1W45cDN/zN2AcYduDavU+nq9aStyQizi4MHxnwkRvS/H24WIjgc1qD8CISoqXa8AAIe+A+zpWxwV7a2Q==}
+    dev: true
+
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -2145,51 +2276,6 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.21.3
-      cosmiconfig: 8.1.0
-      eslint: 8.36.0
-      eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
-      eslint-plugin-decorator-position: 5.0.2_eslint@8.36.0
-      eslint-plugin-import: 2.27.5_dw7h2zvvpl2lt26j7ah2hqkw6y
-      eslint-plugin-json: 3.1.0
-      eslint-plugin-n: 15.6.1_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_a7sjvsbcgg5dveitgz3whbbski
-      eslint-plugin-simple-import-sort: 10.0.0_eslint@8.36.0
-      prettier: 2.8.4
-      prettier-plugin-ember-template-tag: 0.3.2
-    transitivePeerDependencies:
-      - eslint-config-prettier
-      - eslint-import-resolver-webpack
-      - supports-color
-    dev: true
-
-  /@nullvoxpopuli/eslint-configs/3.1.3_a7sjvsbcgg5dveitgz3whbbski:
-    resolution: {integrity: sha512-55sKdkcewceBRUMoF5HSv5cbHX0ZIHkv6ObpZha0g73U7leR26sGIAO2Vxxnu0fmktwmMVJBjQvq7jpqO0VJ9A==}
-    engines: {node: '>= v16.0.0'}
-    peerDependencies:
-      '@babel/core': ^7.20.12
-      '@babel/eslint-parser': ^7.19.1
-      '@typescript-eslint/eslint-plugin': ^5.51.0
-      '@typescript-eslint/parser': ^5.51.0
-      eslint: ^7.0.0 || ^8.0.0
-      eslint-plugin-ember: ^11.4.6
-      eslint-plugin-qunit: ^7.3.4
-      prettier: ^2.8.4
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@babel/eslint-parser':
-        optional: true
-      '@typescript-eslint/eslint-plugin':
-        optional: true
-      '@typescript-eslint/parser':
-        optional: true
-      eslint-plugin-ember:
-        optional: true
-      eslint-plugin-qunit:
-        optional: true
-      prettier:
-        optional: true
-    dependencies:
       cosmiconfig: 8.1.0
       eslint: 8.36.0
       eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
@@ -2319,6 +2405,10 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /@tsconfig/ember/2.0.0:
+    resolution: {integrity: sha512-RzbDYYcjxVdG8Ki0xe99HN3+nHTZe6EBgw6N7B3yup7QogVFQQxA9nY7X80j1XzF15xqetwWiYfAjv5lkkp0/A==}
+    dev: true
+
   /@tsconfig/node16-strictest-esm/1.0.3:
     resolution: {integrity: sha512-0/QTPDkKmE2dy0dMRstPCv4VJ+gUGgvMKzaWd5P3hgdlmPqYqe1pJxDGUlNYbSgUBlncIvvX+mIeZarokysNgg==}
     dev: true
@@ -2376,12 +2466,20 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
 
+  /@types/node/17.0.45:
+    resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+    dev: true
+
   /@types/node/18.15.3:
     resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/object-path/0.11.1:
+    resolution: {integrity: sha512-219LSCO9HPcoXcRTC6DbCs0FRhZgBnEMzf16RRqkT40WbkKx3mOeQuz3e2XqbfhOz/AHfbru0kzB1n1RCAsIIg==}
     dev: true
 
   /@types/rimraf/2.0.5:
@@ -2401,6 +2499,10 @@ packages:
 
   /@types/symlink-or-copy/1.2.0:
     resolution: {integrity: sha512-Lja2xYuuf2B3knEsga8ShbOdsfNOtzT73GyJmZyY7eGl2+ajOqrs8yM5ze0fsSoYwvA6bw7/Qr7OZ7PEEmYwWg==}
+
+  /@types/ua-parser-js/0.7.36:
+    resolution: {integrity: sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==}
+    dev: true
 
   /@typescript-eslint/eslint-plugin/5.55.0_342y7v4tc7ytrrysmit6jo4wri:
     resolution: {integrity: sha512-IZGc50rtbjk+xp5YQoJvmMPmJEYoC53SiKPXyqWfv15XoD2Y5Kju6zN0DwlmaGJp1Iw33JsWJcQ7nw0lGCGjVg==}
@@ -2530,6 +2632,11 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.55.0
       eslint-visitor-keys: 3.3.0
+    dev: true
+
+  /@wessberg/stringutil/1.0.19:
+    resolution: {integrity: sha512-9AZHVXWlpN8Cn9k5BC/O0Dzb9E9xfEMXzYrNunwvkUTvuK7xgQPVRZpLo+jWCOZ5r8oBa8NIrHuPEu1hzbb6bg==}
+    engines: {node: '>=8.0.0'}
     dev: true
 
   /abab/2.0.6:
@@ -3260,6 +3367,22 @@ packages:
     resolution: {integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==}
     dev: true
 
+  /browserslist-generator/2.0.3:
+    resolution: {integrity: sha512-3j8ogwvlBpOEDR3f5n1H2n5BWXqHPWi/Xm8EC1DPJy5BWl4WkSFisatBygH/L9AEmg0MtOfcR1QnMuM9XL28jA==}
+    engines: {node: '>=16.15.1', npm: '>=7.0.0', pnpm: '>=3.2.0', yarn: '>=1.13'}
+    dependencies:
+      '@mdn/browser-compat-data': 5.2.42
+      '@types/object-path': 0.11.1
+      '@types/semver': 7.3.13
+      '@types/ua-parser-js': 0.7.36
+      browserslist: 4.21.5
+      caniuse-lite: 1.0.30001466
+      isbot: 3.6.7
+      object-path: 0.11.8
+      semver: 7.3.8
+      ua-parser-js: 1.0.34
+    dev: true
+
   /browserslist/4.21.5:
     resolution: {integrity: sha512-tUkiguQGW7S3IhB7N+c2MV/HZPSCPAAiYBZXLsBhFB/PCy6ZKKsZrmBayHV9fdGV/ARIfJ14NkxKzRDjvp7L6w==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -3415,6 +3538,16 @@ packages:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
     dev: true
 
+  /compatfactory/2.0.9_typescript@4.9.5:
+    resolution: {integrity: sha512-fvO+AWcmbO7P1S+A3mwm3IGr74eHMeq5ZLhNhyNQc9mVDNHT4oe0Gg0ksdIFFNXLK7k7Z/TYcLAUSQdRgh1bsA==}
+    engines: {node: '>=14.9.0'}
+    peerDependencies:
+      typescript: '>=3.x || >= 4.x'
+    dependencies:
+      helpertypes: 0.0.19
+      typescript: 4.9.5
+    dev: true
+
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -3484,6 +3617,13 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: true
+
+  /crosspath/2.0.0:
+    resolution: {integrity: sha512-ju88BYCQ2uvjO2bR+SsgLSTwTSctU+6Vp2ePbKPgSCZyy4MWZxYsT738DlKVRE5utUjobjPRm1MkTYKJxCmpTA==}
+    engines: {node: '>=14.9.0'}
+    dependencies:
+      '@types/node': 17.0.45
     dev: true
 
   /css-loader/5.2.7:
@@ -3950,6 +4090,48 @@ packages:
       '@ember/edition-utils': 1.2.0
       '@glimmer/vm-babel-plugins': 0.84.2
       babel-plugin-debug-macros: 0.3.4
+      babel-plugin-filter-imports: 4.0.0
+      broccoli-concat: 4.2.5
+      broccoli-debug: 0.6.5
+      broccoli-file-creator: 2.1.1
+      broccoli-funnel: 3.0.8
+      broccoli-merge-trees: 4.2.0
+      chalk: 4.1.2
+      ember-auto-import: 2.6.1
+      ember-cli-babel: 7.26.11
+      ember-cli-get-component-path-option: 1.0.0
+      ember-cli-is-package-missing: 1.0.0
+      ember-cli-normalize-entity-name: 1.0.0
+      ember-cli-path-utils: 1.0.0
+      ember-cli-string-utils: 1.1.0
+      ember-cli-typescript-blueprint-polyfill: 0.1.0
+      ember-cli-version-checker: 5.1.2
+      ember-router-generator: 2.0.0
+      inflection: 1.13.4
+      resolve: 1.22.1
+      semver: 7.3.8
+      silent-error: 1.1.1
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+      - webpack
+    dev: true
+
+  /ember-source/4.11.0_wdt64mjlww5fpvzagecura56i4:
+    resolution: {integrity: sha512-SNRHsQOvF3C9emS7Rg4zcFdwY6aiSkV/7CG+KBpmzLY6hIWQNruzEDZINpNgqBn7CicAJ6g573WG7zu6458agQ==}
+    engines: {node: '>= 14.*'}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+    peerDependenciesMeta:
+      '@glimmer/component':
+        optional: true
+    dependencies:
+      '@babel/helper-module-imports': 7.18.6
+      '@babel/plugin-transform-block-scoping': 7.21.0_@babel+core@7.21.3
+      '@ember/edition-utils': 1.2.0
+      '@glimmer/component': 1.1.2_@babel+core@7.21.3
+      '@glimmer/vm-babel-plugins': 0.84.2_@babel+core@7.21.3
+      babel-plugin-debug-macros: 0.3.4_@babel+core@7.21.3
       babel-plugin-filter-imports: 4.0.0
       broccoli-concat: 4.2.5
       broccoli-debug: 0.6.5
@@ -5082,6 +5264,11 @@ packages:
     dependencies:
       rsvp: 3.2.1
 
+  /helpertypes/0.0.19:
+    resolution: {integrity: sha512-J00e55zffgi3yVnUp0UdbMztNkr2PnizEkOe9URNohnrNhW5X0QpegkuLpOmFQInpi93Nb8MCjQRHAiCDF42NQ==}
+    engines: {node: '>=10.0.0'}
+    dev: true
+
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
@@ -5365,6 +5552,11 @@ packages:
 
   /isarray/1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
+    dev: true
+
+  /isbot/3.6.7:
+    resolution: {integrity: sha512-SXNUQaNZlj/+9jdrGnAp6WW0YoHe3MIwwc6oRIYuhhERBUt7/L6I7JkMiA2sX9fcvS7gZ2C7GWgmDZfOOU4I5g==}
+    engines: {node: '>=12'}
     dev: true
 
   /isexe/2.0.0:
@@ -5694,6 +5886,13 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /magic-string/0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -5928,6 +6127,11 @@ packages:
   /object-keys/1.1.1:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /object-path/0.11.8:
+    resolution: {integrity: sha512-YJjNZrlXJFM42wTBn6zgOJVar9KFJvzx6sTWDte8sWZF//cnjl0BxHNpfZx+ZffXX63A9q0b1zsFiBX4g4X5KA==}
+    engines: {node: '>= 10.12.0'}
     dev: true
 
   /object.assign/4.1.4:
@@ -6561,6 +6765,52 @@ packages:
       del: 5.1.0
     dev: true
 
+  /rollup-plugin-ts/3.2.0_ydk6ocwts2f26py227ahyuhk5i:
+    resolution: {integrity: sha512-KkTLVifkUexEiAXS9VtSjDrjKr0TyusmNJpb2ZTAzI9VuPumSu4AktIaVNnwv70iUEitHwZtET7OAM+5n1u1tg==}
+    engines: {node: '>=14.9.0', npm: '>=7.0.0', pnpm: '>=3.2.0', yarn: '>=1.13'}
+    peerDependencies:
+      '@babel/core': '>=6.x || >=7.x'
+      '@babel/plugin-transform-runtime': '>=6.x || >=7.x'
+      '@babel/preset-env': '>=6.x || >=7.x'
+      '@babel/preset-typescript': '>=6.x || >=7.x'
+      '@babel/runtime': '>=6.x || >=7.x'
+      '@swc/core': '>=1.x'
+      '@swc/helpers': '>=0.2'
+      rollup: '>=1.x || >=2.x'
+      typescript: '>=3.2.x || >= 4.x'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/plugin-transform-runtime':
+        optional: true
+      '@babel/preset-env':
+        optional: true
+      '@babel/preset-typescript':
+        optional: true
+      '@babel/runtime':
+        optional: true
+      '@swc/core':
+        optional: true
+      '@swc/helpers':
+        optional: true
+    dependencies:
+      '@babel/core': 7.21.3
+      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.3
+      '@babel/runtime': 7.21.0
+      '@rollup/pluginutils': 5.0.2_rollup@3.19.1
+      '@wessberg/stringutil': 1.0.19
+      ansi-colors: 4.1.3
+      browserslist: 4.21.5
+      browserslist-generator: 2.0.3
+      compatfactory: 2.0.9_typescript@4.9.5
+      crosspath: 2.0.0
+      magic-string: 0.27.0
+      rollup: 3.19.1
+      ts-clone-node: 2.0.4_typescript@4.9.5
+      tslib: 2.5.0
+      typescript: 4.9.5
+    dev: true
+
   /rollup/3.19.1:
     resolution: {integrity: sha512-lAbrdN7neYCg/8WaoWn/ckzCtz+jr70GFfYdlf50OF7387HTg+wiuiqJRFYawwSPpqfqDNYqK7smY/ks2iAudg==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
@@ -7097,6 +7347,16 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /ts-clone-node/2.0.4_typescript@4.9.5:
+    resolution: {integrity: sha512-eG6FAgmQsenhIJOIFhUcO6yyYejBKZIKcI3y21jiQmIOrth5pD6GElyPAyeihbPSyBs3u/9PVNXy+5I7jGy8jA==}
+    engines: {node: '>=14.9.0'}
+    peerDependencies:
+      typescript: ^3.x || ^4.x
+    dependencies:
+      compatfactory: 2.0.9_typescript@4.9.5
+      typescript: 4.9.5
+    dev: true
+
   /ts-replace-all/1.0.0:
     resolution: {integrity: sha512-6uBtdkw3jHXkPtx/e9xB/5vcngMm17CyJYsS2YZeQ+9FdRnt6Ev5g931Sg2p+dxbtMGoCm13m3ax/obicTZIkQ==}
     dependencies:
@@ -7256,6 +7516,10 @@ packages:
     hasBin: true
     dev: true
 
+  /ua-parser-js/1.0.34:
+    resolution: {integrity: sha512-K9mwJm/DaB6mRLZfw6q8IMXipcrmuT6yfhYmwhAkuh+81sChuYstYA+znlgaflUPaYUa3odxKPKGw6Vw/lANew==}
+    dev: true
+
   /uglify-js/3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
     engines: {node: '>=0.8.0'}
@@ -7346,6 +7610,11 @@ packages:
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: true
+
   /validate-npm-package-license/3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
     dependencies:
@@ -7370,12 +7639,31 @@ packages:
       vscode-uri: 3.0.7
     dev: true
 
+  /vscode-jsonrpc/8.1.0:
+    resolution: {integrity: sha512-6TDy/abTQk+zDGYazgbIPc+4JoXdwC8NHU9Pbn4UJP1fehUyZmM4RHp5IthX7A6L5KS30PRui+j+tbbMMMafdw==}
+    engines: {node: '>=14.0.0'}
+    dev: true
+
+  /vscode-languageserver-protocol/3.17.3:
+    resolution: {integrity: sha512-924/h0AqsMtA5yK22GgMtCYiMdCOtWTSGgUOkgEDX+wk2b0x4sAfLiO4NxBxqbiVtz7K7/1/RgVrVI0NClZwqA==}
+    dependencies:
+      vscode-jsonrpc: 8.1.0
+      vscode-languageserver-types: 3.17.3
+    dev: true
+
   /vscode-languageserver-textdocument/1.0.8:
     resolution: {integrity: sha512-1bonkGqQs5/fxGT5UchTgjGVnfysL0O8v1AYMBjqTbWQTFn721zaPGDYFkOKtfDgFiSgXM3KwaG3FMGfW4Ed9Q==}
     dev: true
 
   /vscode-languageserver-types/3.17.3:
     resolution: {integrity: sha512-SYU4z1dL0PyIMd4Vj8YOqFvHu7Hz/enbWtpfnVbJHU4Nd1YNYx8u0ennumc6h48GQNeOLxmwySmnADouT/AuZA==}
+    dev: true
+
+  /vscode-languageserver/8.1.0:
+    resolution: {integrity: sha512-eUt8f1z2N2IEUDBsKaNapkz7jl5QpskN2Y0G01T/ItMxBxw1fJwvtySGB9QMecatne8jFIWJGWI61dWjyTLQsw==}
+    hasBin: true
+    dependencies:
+      vscode-languageserver-protocol: 3.17.3
     dev: true
 
   /vscode-nls/5.2.0:
