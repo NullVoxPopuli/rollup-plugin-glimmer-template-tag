@@ -1,4 +1,57 @@
 {
   "name": "rollup-plugin-glimmer-template-tag",
-  "version": "0.0.0"
+  "version": "0.0.1",
+  "type": "module",
+  "description": "rollup plugin for converting <template> into valid JS / TS",
+  "repository": "https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/rollup-plugin.js"
+  },
+  "contributors": [
+    "@dfreeman",
+    "@gossi",
+    "@NullVoxPopuli"
+  ],
+  "scripts": {
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:js": "eslint . --cache",
+    "lint:types": "tsc --noEmit",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:js:fix": "eslint . --fix",
+    "prepublishOnly": "cp ../../README.md ./"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "engines": {
+    "node": "^16.0.0 || ^18.0.0 || ^20.0.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "devDependencies": {
+    "@nullvoxpopuli/eslint-configs": "^3.1.3",
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "concurrently": "^7.6.0",
+    "ember-source": "^4.11.0",
+    "ember-template-imports": "^3.4.1",
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.4",
+    "rollup": "^3.19.1",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "ember-source": "^4.0.0 || ^5.0.0",
+    "ember-template-imports": "^3.4.1"
+  }
 }
