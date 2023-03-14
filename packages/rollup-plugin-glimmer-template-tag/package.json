@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-glimmer-template-tag",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "rollup-plugin.mjs",
   "publishConfig": {
