@@ -2,7 +2,20 @@
   "name": "rollup-plugin-glimmer-template-tag",
   "version": "0.0.1",
   "type": "module",
-  "main": "rollup-plugin.mjs",
+  "description": "rollup plugin for converting <template> into valid JS / TS",
+  "repository": "https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/rollup-plugin.js"
+  },
+  "contributors": [
+    "@dfreeman",
+    "@gossi",
+    "@NullVoxPopuli"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
