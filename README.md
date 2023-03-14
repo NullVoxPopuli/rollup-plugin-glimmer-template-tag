@@ -12,6 +12,17 @@ Rollup plugin for providing `<template>` support for both gjs and gts file forma
 
 ## Usage
 
+First and foremost, this repo's test-packages contain examples of 
+- js ember v2 addon using gjs 
+- ts ember v2 addon using gts  
+- ember test app consuming both of the above addons 
+
+For specifics, the `packages/**` folder may provide value.
+
+
+### Rollup
+
+
 The first step is add the rollup plugin, which will
 understand the `<template>` tag `gjs` and `gts` files:
 
@@ -40,6 +51,24 @@ export default {
 For `gjs` files, the next line would be to run the babel plugin, which uses the
 config we extended earlier and transpiles the intermediate format into the final
 `js` files.
+
+### Babel
+
+Add the `ember-template-imports` babel plugin to your babel config:
+
+```diff
+ 'use strict';
+
+ module.exports = {
+   plugins: [
++    'ember-template-imports/src/babel-plugin',
+     '@embroider/addon-dev/template-colocation-plugin',
+     ['@babel/plugin-proposal-decorators', { legacy: true }],
+     '@babel/plugin-proposal-class-properties'
+   ]
+ };
+```
+
 
 ### Configure `rollup-plugin-ts` (TS Only)
 
