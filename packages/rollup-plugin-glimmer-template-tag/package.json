@@ -22,7 +22,8 @@
     "lint:js": "eslint . --cache",
     "lint:prettier": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
-    "lint:js:fix": "eslint . --fix"
+    "lint:js:fix": "eslint . --fix",
+    "prepublishOnly": "cp ../../README.md ./"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
