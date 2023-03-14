@@ -10,5 +10,8 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@nullvoxpopuli/test-addon"]
+  "ignore": [
+    "@nullvoxpopuli/test-rollup-addon-gjs",
+    "@nullvoxpopuli/test-rollup-addon-gts"
+  ]
 }
