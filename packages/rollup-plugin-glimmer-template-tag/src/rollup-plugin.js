@@ -30,7 +30,7 @@ export function glimmerTemplateTag() {
         }
 
         if (!result?.id) {
-          return;
+          continue;
         }
 
         if (RELEVANT_EXTENSION_REGEX.test(result?.id)) {
