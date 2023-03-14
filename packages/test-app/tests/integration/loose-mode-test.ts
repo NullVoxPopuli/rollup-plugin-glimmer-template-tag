@@ -1,7 +1,7 @@
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { hbs } from 'ember-cli-htmlbars';
-import { render } from '@ember/test-helpers';
 
 module('loose mode', function (hooks) {
   setupRenderingTest(hooks);
