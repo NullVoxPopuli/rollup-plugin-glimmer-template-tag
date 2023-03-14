@@ -2,6 +2,13 @@
 
 Rollup plugin for providing `<template>` support for both gjs and gts file formats
 
+## Compatibility
+
+- Node 16, 18, following Node's [LTS support](https://nodejs.dev/en/about/releases/).
+- Rollup 3+
+- ESM only. 
+  Rollup configs will need to be in a type=module package, or be defined as `mjs` 
+
 
 ## Usage
 
@@ -10,7 +17,8 @@ understand the `<template>` tag `gjs` and `gts` files:
 
 ```js
 import { Addon } from '@embroider/addon-dev/rollup';
-import templateTag from 'rollup-plugin-glimmer-template-tag';
+
+import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -23,7 +31,7 @@ export default {
     addon.publicEntrypoints(['components/**/*.js', 'index.js'<% if (typescript) {%>, 'template-registry.js'<% } %>]),
     addon.appReexports(['components/**/*.js']),
     addon.dependencies(),
-    templateTag(),
+    glimmerTemplateTag(),
     // ...
   ]
 };
