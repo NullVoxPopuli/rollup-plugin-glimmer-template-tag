@@ -6,6 +6,7 @@
     "node": "18.15.0"
   },
   "scripts": {
+    "release": "changeset publish",
     "lint": "turbo lint",
     "test": "turbo test",
     "lint:fix": "pnpm --filter '*' lint:fix"
