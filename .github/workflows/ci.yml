@@ -28,7 +28,7 @@ jobs:
       - uses: NullVoxPopuli/action-setup-pnpm@v1.1.0
 
   lint:
-    name: Lint
+    name: "Lint / Format / Glint"
     runs-on: ubuntu-latest
     needs: [install_dependencies]
     steps:
@@ -41,7 +41,7 @@ jobs:
         run: pnpm lint
 
   e2e_tests:
-    name: "E2E Tests: ${{ matrix.node }}"
+    name: "Tests on Node ${{ matrix.node }}"
     runs-on: ubuntu-latest
     needs: [install_dependencies]
     strategy:
