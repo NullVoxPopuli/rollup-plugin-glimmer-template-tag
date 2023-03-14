@@ -12,6 +12,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "@nullvoxpopuli/test-rollup-addon-gjs",
-    "@nullvoxpopuli/test-rollup-addon-gts"
+    "@nullvoxpopuli/test-rollup-addon-gts",
+    "test-app"
   ]
 }

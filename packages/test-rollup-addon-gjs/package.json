@@ -9,8 +9,16 @@
   "exports": {
     ".": "dist/index.js",
     "./components/js-demo": "dist/components/js-demo.js",
-    "./components/js-class-demo": "dist/components/js-class-demo.js"
+    "./components/js-class-demo": "dist/components/js-class-demo.js",
+    "./glint-registry": {
+      "types": "glint-registry.d.ts"
+    }
   },
+  "files": [
+    "dist",
+    "glint-registry.d.ts",
+    "addon-main.cjs"
+  ],
   "scripts": {
     "build": "rollup -c",
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
