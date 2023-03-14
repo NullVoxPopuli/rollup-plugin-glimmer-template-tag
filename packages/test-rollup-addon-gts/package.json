@@ -13,6 +13,13 @@
       "types": "dist/glint-registry.d.ts"
     }
   },
+  "typesVersions": {
+    "*": {
+      "glint-registry": [
+        "dist/glint-registry.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist",
     "addon-main.cjs"
