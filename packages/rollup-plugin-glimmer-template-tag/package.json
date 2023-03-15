@@ -56,8 +56,6 @@
     "ember-template-imports": "^3.4.1"
   },
   "dependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-syntax-decorators": "^7.21.0",
-    "@babel/plugin-syntax-typescript": "^7.20.0"
+    "@babel/core": "^7.21.3"
   }
 }
