@@ -91,6 +91,9 @@ dist
 # vuepress build output
 .vuepress/dist
 
+# Turbo cache
+.turbo/
+
 # Serverless directories
 .serverless/
 
