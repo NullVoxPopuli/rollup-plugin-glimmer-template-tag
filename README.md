@@ -52,24 +52,6 @@ For `gjs` files, the next line would be to run the babel plugin, which uses the
 config we extended earlier and transpiles the intermediate format into the final
 `js` files.
 
-### Babel
-
-Add the `ember-template-imports` babel plugin to your babel config:
-
-```diff
- 'use strict';
-
- module.exports = {
-   plugins: [
-+    'ember-template-imports/src/babel-plugin',
-     '@embroider/addon-dev/template-colocation-plugin',
-     ['@babel/plugin-proposal-decorators', { legacy: true }],
-     '@babel/plugin-proposal-class-properties'
-   ]
- };
-```
-
-
 ### Configure `rollup-plugin-ts` (TS Only)
 
 For typescript, a config change is required to allow the transpilation to happen:
