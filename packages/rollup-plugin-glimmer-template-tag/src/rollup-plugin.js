@@ -6,6 +6,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+import { transform } from '@babel/core';
 import { preprocessEmbeddedTemplates } from 'ember-template-imports/lib/preprocess-embedded-templates.js';
 import { TEMPLATE_TAG_NAME, TEMPLATE_TAG_PLACEHOLDER } from 'ember-template-imports/lib/util.js';
 
@@ -49,7 +50,19 @@ export function glimmerTemplateTag() {
       }
 
       if (RELEVANT_EXTENSION_REGEX.test(originalId)) {
-        return await preprocessTemplates(originalId);
+        let intermediate = await preprocessTemplates(originalId);
+
+        let result = transform(intermediate, {
+          babelrc: false,
+          configFile: false,
+          filename: path.basename(originalId),
+          browserslistConfigFile: false,
+          plugins: ['ember-template-imports/src/babel-plugin'],
+        });
+
+        if (result?.code) {
+          return result.code;
+        }
       }
 
       return;
