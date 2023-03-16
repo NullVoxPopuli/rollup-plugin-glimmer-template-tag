@@ -17,7 +17,9 @@ export default defineConfig({
     glimmerTemplateTag(),
     typescript({
       transpiler: 'babel',
-      browserslist: false,
+      // Babel defaults to "guessing" when there is no browserslist past
+      // We want to do the least amount of work
+      browserslist: ['last 1 firefox versions'],
       transpileOnly: true,
     }),
     addon.dependencies(),

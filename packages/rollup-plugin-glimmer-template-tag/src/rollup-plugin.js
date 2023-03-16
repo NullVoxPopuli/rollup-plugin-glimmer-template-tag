@@ -6,6 +6,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+import * as babel from '@babel/core';
 import { preprocessEmbeddedTemplates } from 'ember-template-imports/lib/preprocess-embedded-templates.js';
 import { TEMPLATE_TAG_NAME, TEMPLATE_TAG_PLACEHOLDER } from 'ember-template-imports/lib/util.js';
 
@@ -49,12 +50,59 @@ export function glimmerTemplateTag() {
       }
 
       if (RELEVANT_EXTENSION_REGEX.test(originalId)) {
-        return await preprocessTemplates(originalId);
+        return transformGlimmerTemplateTag(originalId);
       }
 
       return;
     },
   };
+}
+
+/**
+ * @param {string} originalId
+ */
+async function transformGlimmerTemplateTag(originalId) {
+  let intermediate = await preprocessTemplates(originalId);
+
+  let config = await babel.loadPartialConfigAsync();
+
+  // Use the basename so we don't accidentally operate on real files
+  let filename = path.basename(originalId);
+
+  /**
+   * Because we need to parse the user's code,
+   * we can't assume that they're not using custom plugins / syntax.
+   *
+   * So we *must* use their babel config, and then _only_
+   * do the ember-template-imports transform.
+   */
+  let ast = await babel.parseAsync(intermediate, {
+    ...config?.options,
+    filename,
+    ast: true,
+    sourceMaps: 'inline',
+  });
+
+  if (!ast) {
+    throw new Error('Failed to parse the intermediate output in to Babel AST');
+  }
+
+  let result = await babel.transformFromAstAsync(ast, intermediate, {
+    babelrc: false,
+    configFile: false,
+    sourceMaps: 'inline',
+    filename: path.basename(originalId),
+    // Babel defaults to "guessing" when there is no browserslist past
+    // We want to do the least amount of work
+    browserslistEnv: 'last 1 firefox versions',
+    plugins: ['ember-template-imports/src/babel-plugin'],
+  });
+
+  if (result?.code) {
+    return result.code;
+  }
+
+  throw new Error('Failed to generate code from Babel AST');
 }
 
 /**
