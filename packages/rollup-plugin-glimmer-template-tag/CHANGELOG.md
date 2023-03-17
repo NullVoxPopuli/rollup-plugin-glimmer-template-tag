@@ -1,5 +1,27 @@
 # rollup-plugin-glimmer-template-tag
 
+## 0.3.0
+
+### Minor Changes
+
+- [#11](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag/pull/11) [`5938936`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag/commit/5938936d9d7471d1ab03e0dbe1ee9eba23f47634) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Add option to the rollup plugin so that folks can choose to separately due to the two-step transform.
+
+  In 0.2.0, it became possible to _only_ use the rollup plugin for the entirety of the transform, whereas in 0.1.0, a babel plugin was needed as well.
+
+  In this version, you may go back to the 0.1.0 style configuration via:
+
+  ```js
+  // rollup.config.mjs
+  export default {
+    output: addon.output(),
+    plugins: [
+      // ...
+      glimmerTemplateTag({ preprocessOnly: true }),
+      // ...
+    ],
+  };
+  ```
+
 ## 0.2.0
 
 ### Minor Changes
