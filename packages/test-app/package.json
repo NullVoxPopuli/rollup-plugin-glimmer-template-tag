@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@nullvoxpopuli/test-rollup-addon-gjs": "workspace:*",
+    "@nullvoxpopuli/test-rollup-addon-split-gts": "workspace:*",
     "@nullvoxpopuli/test-rollup-addon-gts": "workspace:*"
   },
   "devDependencies": {

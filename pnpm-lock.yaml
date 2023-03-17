@@ -63,6 +63,7 @@ importers:
       '@nullvoxpopuli/eslint-configs': ^3.1.3
       '@nullvoxpopuli/test-rollup-addon-gjs': workspace:*
       '@nullvoxpopuli/test-rollup-addon-gts': workspace:*
+      '@nullvoxpopuli/test-rollup-addon-split-gts': workspace:*
       '@tsconfig/ember': ^2.0.0
       '@types/qunit': ^2.19.4
       '@types/rsvp': ^4.0.4
@@ -107,6 +108,7 @@ importers:
     dependencies:
       '@nullvoxpopuli/test-rollup-addon-gjs': link:../test-rollup-addon-gjs
       '@nullvoxpopuli/test-rollup-addon-gts': link:../test-rollup-addon-gts
+      '@nullvoxpopuli/test-rollup-addon-split-gts': link:../test-rollup-addon-split-gts
     devDependencies:
       '@ember/optional-features': 2.0.0
       '@ember/string': 3.0.1
@@ -197,6 +199,63 @@ importers:
       rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
 
   packages/test-rollup-addon-gts:
+    specifiers:
+      '@babel/core': ^7.21.3
+      '@babel/eslint-parser': ^7.21.3
+      '@babel/plugin-proposal-class-properties': ^7.18.6
+      '@babel/plugin-proposal-decorators': ^7.21.0
+      '@babel/preset-typescript': ^7.21.0
+      '@babel/runtime': ^7.21.0
+      '@embroider/addon-dev': ^3.0.0
+      '@embroider/addon-shim': ^1.8.4
+      '@glimmer/component': ^1.1.2
+      '@glint/core': ^1.0.0-beta.3
+      '@glint/environment-ember-loose': ^1.0.0-beta.3
+      '@glint/environment-ember-template-imports': ^1.0.0-beta.3
+      '@glint/template': ^1.0.0-beta.3
+      '@nullvoxpopuli/eslint-configs': ^3.1.3
+      '@tsconfig/ember': ^2.0.0
+      '@types/rsvp': ^4.0.4
+      ember-source: ^4.11.0
+      ember-template-imports: ^3.4.1
+      eslint: ^8.36.0
+      eslint-plugin-ember: ^11.4.7
+      eslint-plugin-qunit: ^7.3.4
+      prettier: ^2.8.4
+      rollup: ^3.19.1
+      rollup-plugin-glimmer-template-tag: workspace:*
+      rollup-plugin-ts: ^3.2.0
+      typescript: ^4.9.5
+    dependencies:
+      '@embroider/addon-shim': 1.8.4
+    devDependencies:
+      '@babel/core': 7.21.3
+      '@babel/eslint-parser': 7.21.3_pxuto7xgangxlusvzceggvrmde
+      '@babel/plugin-proposal-class-properties': 7.18.6_@babel+core@7.21.3
+      '@babel/plugin-proposal-decorators': 7.21.0_@babel+core@7.21.3
+      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.3
+      '@babel/runtime': 7.21.0
+      '@embroider/addon-dev': 3.0.0_rollup@3.19.1
+      '@glimmer/component': 1.1.2_@babel+core@7.21.3
+      '@glint/core': 1.0.0-beta.3_typescript@4.9.5
+      '@glint/environment-ember-loose': 1.0.0-beta.3_acn5lxfzqsyvoloees6qvx3wku
+      '@glint/environment-ember-template-imports': 1.0.0-beta.3_vycqboguq2ondhtbsrsjhy7tvi
+      '@glint/template': 1.0.0-beta.3
+      '@nullvoxpopuli/eslint-configs': 3.1.3_yrs52uff32x2ahkkmgmhaom464
+      '@tsconfig/ember': 2.0.0
+      '@types/rsvp': 4.0.4
+      ember-source: 4.11.0_wdt64mjlww5fpvzagecura56i4
+      ember-template-imports: 3.4.1
+      eslint: 8.36.0
+      eslint-plugin-ember: 11.4.7_eslint@8.36.0
+      eslint-plugin-qunit: 7.3.4_eslint@8.36.0
+      prettier: 2.8.4
+      rollup: 3.19.1
+      rollup-plugin-glimmer-template-tag: link:../rollup-plugin-glimmer-template-tag
+      rollup-plugin-ts: 3.2.0_ydk6ocwts2f26py227ahyuhk5i
+      typescript: 4.9.5
+
+  packages/test-rollup-addon-split-gts:
     specifiers:
       '@babel/core': ^7.21.3
       '@babel/eslint-parser': ^7.21.3
@@ -2941,7 +3000,7 @@ packages:
       '@types/ember__routing':
         optional: true
     dependencies:
-      '@glint/environment-ember-loose': 1.0.0-beta.3_wt3zkvip3eqybjfuwsq2agrquy
+      '@glint/environment-ember-loose': 1.0.0-beta.3_acn5lxfzqsyvoloees6qvx3wku
       '@glint/template': 1.0.0-beta.3
       ember-template-imports: 3.4.1
     dev: true
@@ -8150,7 +8209,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.12.0
       eslint: 8.36.0
-      eslint-plugin-import: 2.27.5_v7jo3sddp7aqau7pajjy572cju
+      eslint-plugin-import: 2.27.5_dw7h2zvvpl2lt26j7ah2hqkw6y
       get-tsconfig: 4.4.0
       globby: 13.1.3
       is-core-module: 2.11.0

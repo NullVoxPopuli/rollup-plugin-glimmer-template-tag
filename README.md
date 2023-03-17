@@ -129,3 +129,41 @@ Without setting `transpileOnly: true` (using the default or explicitly setting t
     This exposes internal information about the `<template>` transformation process. 
     Though, you could try to get around the issue if you _really_ want `transpileOnly: false` by `declare module`ing for `@ember/template-compilation` in your `unpublished-development-types` _except_ that `@ember/template-compilation` is not presently a real package, so the part of the error saying `Cannot find module ` is still true, even though a corresponding type declaration is defined -- both the module and the type declarations are needed.
 
+
+### Manually choosing the two-stage transformation
+
+There is an option available to the rollup plugin so that folks can choose to separately due to the two-step transform.
+
+Normally, these are done wholly within the rollup plugin:
+ 1. preprocess the `<template>` tag into a secret internal format
+ 2. convert that secret internal format into vanilla JS that a consuming build environment knows how to handle
+
+However, for performance or compatibility reasons, it may not be desireable to allow both steps to be handled automatically.
+
+You'd want these changes to your config files:
+
+```js
+// rollup.config.mjs
+export default {
+  output: addon.output(),
+  plugins: [
+    // ...
+    glimmerTemplateTag({ preprocessOnly: true }),
+    // ...
+  ],
+};
+```
+
+```diff
+ // babel.config.js / json / etc
+ 'use strict';
+ module.exports = {
+   plugins: [
++    'ember-template-imports/src/babel-plugin',
+     '@embroider/addon-dev/template-colocation-plugin',
+     ['@babel/plugin-proposal-decorators', { legacy: true }],
+     '@babel/plugin-proposal-class-properties'
+   ]
+ };
+```
+
