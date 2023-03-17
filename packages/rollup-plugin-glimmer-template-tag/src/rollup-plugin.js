@@ -13,8 +13,20 @@ import { TEMPLATE_TAG_NAME, TEMPLATE_TAG_PLACEHOLDER } from 'ember-template-impo
 const PLUGIN_KEY = 'glimmer-template-tag';
 const RELEVANT_EXTENSION_REGEX = /\.g([jt]s)$/;
 
-/** @type {PluginImpl} */
-export function glimmerTemplateTag() {
+/**
+ * Rollup plugin that does a two-phase transform to convert <template> tags to vanilla JS.
+ * 1. preprocess the <template> tag into a secret internal format
+ * 2. convert that secret internal format into vanilla JS that a consuming build environment knows how to handle
+ *
+ * @typedef {object} Options
+ * @property {boolean} [preprocessOnly] tells this rollup plugin to only do the first part of the <template> transform
+ * @param {Options} options
+ *
+ * @type {PluginImpl}
+ * */
+export function glimmerTemplateTag(options) {
+  let { preprocessOnly } = options || {};
+
   return {
     name: 'preprocess-glimmer-template-tag',
     async resolveId(source, importer, options) {
@@ -50,7 +62,7 @@ export function glimmerTemplateTag() {
       }
 
       if (RELEVANT_EXTENSION_REGEX.test(originalId)) {
-        return transformGlimmerTemplateTag(originalId);
+        return transformGlimmerTemplateTag(originalId, preprocessOnly);
       }
 
       return;
@@ -60,9 +72,14 @@ export function glimmerTemplateTag() {
 
 /**
  * @param {string} originalId
+ * @param {boolean} [ preprocessOnly ]
  */
-async function transformGlimmerTemplateTag(originalId) {
+async function transformGlimmerTemplateTag(originalId, preprocessOnly) {
   let intermediate = await preprocessTemplates(originalId);
+
+  if (preprocessOnly) {
+    return intermediate;
+  }
 
   let config = await babel.loadPartialConfigAsync();
 

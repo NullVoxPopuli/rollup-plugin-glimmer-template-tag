@@ -25,4 +25,14 @@ module('loose mode', function (hooks) {
     assert.dom().containsText('TS Demo: Hello World');
     assert.dom().containsText('TS Class Demo: Hello World');
   });
+
+  test('ts components using the split compilation are correct', async function (assert) {
+    await render(hbs`
+      <TsSplitDemo />
+      <TsSplitClassDemo />
+    `);
+
+    assert.dom().containsText('TS Split Demo: Hello World');
+    assert.dom().containsText('TS Split Class Demo: Hello World');
+  });
 });
