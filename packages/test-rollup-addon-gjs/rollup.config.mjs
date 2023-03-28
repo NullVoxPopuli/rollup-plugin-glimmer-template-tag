@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [
     addon.publicEntrypoints(['**/*.js']),
     addon.appReexports(['components/**/*.js']),
-    glimmerTemplateTag(),
+    glimmerTemplateTag({ preprocessOnly: false }),
     babel({ babelHelpers: 'bundled' }),
     addon.dependencies(),
     addon.clean(),
