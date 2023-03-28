@@ -19,36 +19,54 @@ First and foremost, this repo's test-packages contain examples of
 
 For specifics, the `packages/**` folder may provide value.
 
-### Rollup
+To use `<template>`, you need to change two files:
+ - rollup.config.mjs (where this plugin is used)
+ - babel.config.js / json / etc (where the `<template>` transform is finished)
 
+### Rollup
 
 The first step is add the rollup plugin, which will
 understand the `<template>` tag `gjs` and `gts` files:
 
-```js
-// rollup.config.mjs
-import { Addon } from '@embroider/addon-dev/rollup';
+```diff
+ // rollup.config.mjs
+ import { Addon } from '@embroider/addon-dev/rollup';
 
-import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
++ import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
 
-const addon = new Addon({
-  srcDir: 'src',
-  destDir: 'dist'
-});
+ const addon = new Addon({
+   srcDir: 'src',
+   destDir: 'dist'
+ });
 
-export default {
-  output: addon.output(),
-  plugins: [
-    addon.publicEntrypoints(['components/**/*.js', 'index.js'<% if (typescript) {%>, 'template-registry.js'<% } %>]),
-    addon.appReexports(['components/**/*.js']),
-    addon.dependencies(),
-    glimmerTemplateTag(),
-    // ...
-  ]
-};
+ export default {
+   output: addon.output(),
+   plugins: [
+     addon.publicEntrypoints(['components/demo.js']),
+     addon.appReexports(['components/**/*.js']),
+     addon.dependencies(),
++    glimmerTemplateTag(),
+     // ...
+   ]
+ };
 ```
 
-And that's it!
+### Babel 
+
+```diff
+ // babel.config.js / json / etc
+ 'use strict';
+ module.exports = {
+   plugins: [
++    'ember-template-imports/src/babel-plugin',
+     '@embroider/addon-dev/template-colocation-plugin',
+     ['@babel/plugin-proposal-decorators', { legacy: true }],
+     '@babel/plugin-proposal-class-properties'
+   ]
+ };
+```
+
+
 
 ### Configure `rollup-plugin-ts` (TS Only)
 
@@ -130,28 +148,29 @@ Without setting `transpileOnly: true` (using the default or explicitly setting t
     Though, you could try to get around the issue if you _really_ want `transpileOnly: false` by `declare module`ing for `@ember/template-compilation` in your `unpublished-development-types` _except_ that `@ember/template-compilation` is not presently a real package, so the part of the error saying `Cannot find module ` is still true, even though a corresponding type declaration is defined -- both the module and the type declarations are needed.
 
 
-### Manually choosing the two-stage transformation
+### Manually choosing the single-stage transformation
 
-There is an option available to the rollup plugin so that folks can choose to separately due to the two-step transform.
+There is an option available to the rollup plugin so that folks can choose to attempt the full `<template>` transform in a single pass.
 
-Normally, these are done wholly within the rollup plugin:
+This would do both steps wholly within the rollup plugin:
  1. preprocess the `<template>` tag into a secret internal format
  2. convert that secret internal format into vanilla JS that a consuming build environment knows how to handle
 
-However, for performance or compatibility reasons, it may not be desireable to allow both steps to be handled automatically.
+However, for performance or compatibility reasons, it may not be desireable to allow both steps to be handled automatically -- babel will have to re-parse all your code again (for example, in `rollup-plugin-ts`).
 
-You'd want these changes to your config files:
+If you want to try out a rollup-only `<template>` transform, you'll want to want these changes to your config files:
 
-```js
+```diff
 // rollup.config.mjs
-export default {
-  output: addon.output(),
-  plugins: [
-    // ...
-    glimmerTemplateTag({ preprocessOnly: true }),
-    // ...
-  ],
-};
+ export default {
+   output: addon.output(),
+   plugins: [
+     // ...
+-    glimmerTemplateTag(),
++    glimmerTemplateTag({ preprocessOnly: false }),
+     // ...
+   ],
+ };
 ```
 
 ```diff
@@ -159,7 +178,7 @@ export default {
  'use strict';
  module.exports = {
    plugins: [
-+    'ember-template-imports/src/babel-plugin',
+-    'ember-template-imports/src/babel-plugin',
      '@embroider/addon-dev/template-colocation-plugin',
      ['@babel/plugin-proposal-decorators', { legacy: true }],
      '@babel/plugin-proposal-class-properties'
