@@ -1,5 +1,11 @@
 # rollup-plugin-glimmer-template-tag
 
+## 0.4.0
+
+### Minor Changes
+
+- [#15](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag/pull/15) [`bf84978`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag/commit/bf849789046c8283d77d937c1cb0a467398694c1) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Invert (again) the 2-phase behavior. preprocessOnly will be try by default, and it can be set to false if you want single-file-configuration (at the cost of double babel parse). README has been updated accordingly
+
 ## 0.3.0
 
 ### Minor Changes
