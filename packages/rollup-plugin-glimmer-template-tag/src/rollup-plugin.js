@@ -27,6 +27,8 @@ const RELEVANT_EXTENSION_REGEX = /\.g([jt]s)$/;
 export function glimmerTemplateTag(options) {
   let { preprocessOnly } = options || {};
 
+  preprocessOnly ??= true;
+
   return {
     name: 'preprocess-glimmer-template-tag',
     async resolveId(source, importer, options) {

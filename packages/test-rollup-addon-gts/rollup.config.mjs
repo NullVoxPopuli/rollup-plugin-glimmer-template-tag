@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [
     addon.publicEntrypoints(['**/*.js']),
     addon.appReexports(['components/**/*.js']),
-    glimmerTemplateTag(),
+    glimmerTemplateTag({ preprocessOnly: false }),
     typescript({
       transpiler: 'babel',
       // Babel defaults to "guessing" when there is no browserslist past
