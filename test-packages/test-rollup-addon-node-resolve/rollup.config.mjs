@@ -16,11 +16,11 @@ export default defineConfig({
     addon.publicEntrypoints(['**/*.js']),
     addon.appReexports(['components/**/*.js']),
     glimmerTemplateTag({ preprocessOnly: false }),
-		babel({
-			babelHelpers: 'bundled',
-			extensions: ['.js', '.ts', '.gjs', '.gts'],
-		}),
-		nodeResolve({ extensions: ['.js', '.ts', '.gjs', '.gts'] }),
+    babel({
+      babelHelpers: 'bundled',
+      extensions: ['.js', '.ts', '.gjs', '.gts'],
+    }),
+    nodeResolve({ extensions: ['.js', '.ts', '.gjs', '.gts'] }),
     addon.dependencies(),
     addon.clean(),
   ],
