@@ -55,6 +55,10 @@ export function glimmerTemplateTag(options) {
         return resolution;
       }
 
+      /**
+       * We mix in metadata to the resolution so that when `load` occurs,
+       * we can swap out with the precompiled code.
+       */
       if (resolution?.id && RELEVANT_EXTENSION_REGEX.test(resolution.id)) {
         let result = resolutionFor(resolution.id);
 
