@@ -32,28 +32,21 @@ export function glimmerTemplateTag(options) {
   return {
     name: 'preprocess-glimmer-template-tag',
     async resolveId(source, importer, options) {
-      if (source.endsWith('.hbs')) return;
+      let resolution = await this.resolve(source, importer, { ...options, skipSelf: true });
 
-      for (let ext of ['', '.gjs', '.gts']) {
-        let result = await this.resolve(source + ext, importer, {
-          ...options,
-          skipSelf: true,
-        });
-
-        if (result?.external) {
-          return;
-        }
-
-        if (!result?.id) {
-          continue;
-        }
-
-        if (RELEVANT_EXTENSION_REGEX.test(result?.id)) {
-          return resolutionFor(result.id);
-        }
+      if (resolution?.external) {
+        return resolution;
       }
 
-      return;
+      if (!resolution?.id) {
+        return resolution;
+      }
+
+      if (RELEVANT_EXTENSION_REGEX.test(resolution?.id)) {
+        return resolutionFor(resolution.id);
+      }
+
+      return resolution;
     },
 
     async load(id) {
