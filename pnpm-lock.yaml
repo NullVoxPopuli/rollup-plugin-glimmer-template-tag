@@ -397,10 +397,10 @@ importers:
         version: 1.0.0-beta.3(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.3)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
       '@glint/environment-ember-template-imports':
         specifier: ^1.0.0-beta.3
-        version: 1.0.0-beta.3(@glint/environment-ember-loose@1.0.0-beta.3)(@glint/template@1.0.0-beta.3)(ember-template-imports@3.4.1)
+        version: 1.0.0-beta.3(@glint/environment-ember-loose@1.0.0-beta.3)(@glint/template@1.0.2)(ember-template-imports@3.4.1)
       '@glint/template':
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3
+        specifier: 1.0.2
+        version: 1.0.2
       '@nullvoxpopuli/eslint-configs':
         specifier: ^3.1.3
         version: 3.1.3(@babel/core@7.21.3)(eslint@8.36.0)(prettier@2.8.4)
@@ -3177,8 +3177,37 @@ packages:
       ember-template-imports: 3.4.1
     dev: true
 
+  /@glint/environment-ember-template-imports@1.0.0-beta.3(@glint/environment-ember-loose@1.0.0-beta.3)(@glint/template@1.0.2)(ember-template-imports@3.4.1):
+    resolution: {integrity: sha512-k7ryCPOInC3ak1rtQjg79TB1dO9cmJRcseBKWiOMwaVieHk68wZ8St+Izqx6qYmzD9/QtXP48whOB7eqRidg1w==}
+    peerDependencies:
+      '@glint/environment-ember-loose': ^1.0.0-beta.3
+      '@glint/template': ^1.0.0-beta.3
+      '@types/ember__component': ^4.0.10
+      '@types/ember__helper': ^4.0.1
+      '@types/ember__modifier': ^4.0.3
+      '@types/ember__routing': ^4.0.12
+      ember-template-imports: ^3.0.0
+    peerDependenciesMeta:
+      '@types/ember__component':
+        optional: true
+      '@types/ember__helper':
+        optional: true
+      '@types/ember__modifier':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+    dependencies:
+      '@glint/environment-ember-loose': 1.0.0-beta.3(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.3)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
+      '@glint/template': 1.0.2
+      ember-template-imports: 3.4.1
+    dev: true
+
   /@glint/template@1.0.0-beta.3:
     resolution: {integrity: sha512-jxn4yGzNZ1A4NGzvjYht0NlVziHyzjj/rm4rGsP1mVUO2Dd/LHhhxR6NUlSw9MFDZ0fCinULVwQtAKQLEpIpPw==}
+    dev: true
+
+  /@glint/template@1.0.2:
+    resolution: {integrity: sha512-kFWfJrS7XM0NjC5YSN0CWA9FiN0mhUvWVlQ2O7YRz/uhrO8+TVYNLst0WKELRbfCXbdI7wyYQkazNgz6FoL9CA==}
     dev: true
 
   /@handlebars/parser@2.0.0:
@@ -3362,7 +3391,7 @@ packages:
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
       eslint-plugin-json: 3.1.0
       eslint-plugin-n: 15.6.1(eslint@8.36.0)
-      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.7.0)(eslint@8.36.0)(prettier@2.8.4)
+      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.37.0)(prettier@2.8.7)
       eslint-plugin-qunit: 7.3.4(eslint@8.36.0)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.36.0)
       prettier: 2.8.4
@@ -3411,7 +3440,7 @@ packages:
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
       eslint-plugin-json: 3.1.0
       eslint-plugin-n: 15.6.1(eslint@8.36.0)
-      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.7.0)(eslint@8.36.0)(prettier@2.8.4)
+      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.37.0)(prettier@2.8.7)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.36.0)
       prettier: 2.8.4
       prettier-plugin-ember-template-tag: 0.3.2
@@ -3457,7 +3486,7 @@ packages:
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.36.0)
       eslint-plugin-json: 3.1.0
       eslint-plugin-n: 15.6.1(eslint@8.36.0)
-      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.7.0)(eslint@8.36.0)(prettier@2.8.4)
+      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.37.0)(prettier@2.8.7)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.36.0)
       prettier: 2.8.4
       prettier-plugin-ember-template-tag: 0.3.2
@@ -5303,7 +5332,7 @@ packages:
     resolution: {integrity: sha512-MVyyUk3d1S7d2cl6YISViwJBc2VXCkxF5AUFykvN0PQj5FsUiMNSgAYTso18oRFfyZ6XEtjrgg9MAaufHbOwNw==}
     engines: {node: '>=0.8.0'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       minimist: 0.2.4
       mout: 1.2.4
       osenv: 0.1.5
@@ -6382,7 +6411,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       dot-prop: 5.3.0
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       make-dir: 3.1.0
       unique-string: 2.0.0
       write-file-atomic: 3.0.3
@@ -8147,7 +8176,7 @@ packages:
     dependencies:
       '@ember/string': 3.0.1
       ember-cli-babel: 7.26.11
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.78.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.76.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8197,7 +8226,7 @@ packages:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.6.1(webpack@5.76.1)
+      ember-auto-import: 2.6.1(webpack@5.78.0)
       ember-cli-babel: 7.26.11
       ember-cli-get-component-path-option: 1.0.0
       ember-cli-is-package-missing: 1.0.0
@@ -8239,7 +8268,7 @@ packages:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.6.1(webpack@5.76.1)
+      ember-auto-import: 2.6.1(webpack@5.78.0)
       ember-cli-babel: 7.26.11
       ember-cli-get-component-path-option: 1.0.0
       ember-cli-is-package-missing: 1.0.0
@@ -8572,7 +8601,7 @@ packages:
     resolution: {integrity: sha512-QHTXI/sZQmko1cbDoNAa3mJ5qhWUUNAq3vR0/YiD379fWQrcfuoX1+HW2S0MTt7XmoPLapdaDKUtelUSPic7hQ==}
     engines: {node: '>=10.13.0'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       tapable: 2.2.1
 
   /enquirer@2.3.6:
@@ -9806,7 +9835,7 @@ packages:
   /fs-extra@0.24.0:
     resolution: {integrity: sha512-w1RvhdLZdU9V3vQdL+RooGlo6b9R9WVoBanOfoJvosWlqSKvrjFlci2oVhwvLwZXBtM7khyPvZ8r3fwsim3o0A==}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       jsonfile: 2.4.0
       path-is-absolute: 1.0.1
       rimraf: 2.7.1
@@ -9816,7 +9845,7 @@ packages:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.0
 
@@ -9824,7 +9853,7 @@ packages:
     resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==}
     engines: {node: '>=14.14'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
@@ -9857,7 +9886,7 @@ packages:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
     engines: {node: '>=6 <7 || >=8'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       jsonfile: 4.0.0
       universalify: 0.1.2
 
@@ -9866,7 +9895,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       at-least-node: 1.0.0
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.0
 
@@ -11215,7 +11244,7 @@ packages:
   /jsonfile@2.4.0:
     resolution: {integrity: sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw==}
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
     dev: true
 
   /jsonfile@4.0.0:
@@ -11228,7 +11257,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   /jsonify@0.0.1:
     resolution: {integrity: sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==}
@@ -15253,7 +15282,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dependencies:
       glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   /wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
