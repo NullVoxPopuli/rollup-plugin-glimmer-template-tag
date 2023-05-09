@@ -1,5 +1,6 @@
 {
   "name": "test-v1-addon",
+  "private": true,
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
