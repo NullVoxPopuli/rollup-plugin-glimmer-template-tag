@@ -11,8 +11,7 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@nullvoxpopuli/test-rollup-addon-gjs",
-    "@nullvoxpopuli/test-rollup-addon-gts",
-    "test-app"
+    "@nullvoxpopuli/test-*",
+    "test-*"
   ]
 }
