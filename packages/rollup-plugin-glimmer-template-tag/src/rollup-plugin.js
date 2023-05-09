@@ -11,6 +11,10 @@ import { preprocessEmbeddedTemplates } from 'ember-template-imports/lib/preproce
 import { TEMPLATE_TAG_NAME, TEMPLATE_TAG_PLACEHOLDER } from 'ember-template-imports/lib/util.js';
 
 const PLUGIN_KEY = 'glimmer-template-tag';
+/**
+ * Capture group used to extract the non-glimmer version of the extension
+ * used in the `load` hook.
+ */
 const RELEVANT_EXTENSION_REGEX = /\.g([jt]s)$/;
 
 /**
@@ -34,16 +38,27 @@ export function glimmerTemplateTag(options) {
     async resolveId(source, importer, options) {
       let resolution = await this.resolve(source, importer, { ...options, skipSelf: true });
 
+      /**
+       * When there is no extension provided, we need to *guess*
+       * if the importer is intending to use gjs or gts.
+       *
+       * This is true even if we have the `nodeResolve` plugin included.
+       */
+      if (!resolution && !path.extname(source)) {
+        return (
+          (await this.resolve(source + '.gts', importer, { ...options })) ||
+          (await this.resolve(source + '.gjs', importer, { ...options }))
+        );
+      }
+
       if (resolution?.external) {
         return resolution;
       }
 
-      if (!resolution?.id) {
-        return resolution;
-      }
+      if (resolution?.id && RELEVANT_EXTENSION_REGEX.test(resolution.id)) {
+        let result = resolutionFor(resolution.id);
 
-      if (RELEVANT_EXTENSION_REGEX.test(resolution?.id)) {
-        return resolutionFor(resolution.id);
+        return result;
       }
 
       return resolution;
