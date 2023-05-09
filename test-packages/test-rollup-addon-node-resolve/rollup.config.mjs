@@ -1,6 +1,7 @@
 import { Addon } from '@embroider/addon-dev/rollup';
 
 import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { defineConfig } from 'rollup';
 import { glimmerTemplateTag } from 'rollup-plugin-glimmer-template-tag';
 
