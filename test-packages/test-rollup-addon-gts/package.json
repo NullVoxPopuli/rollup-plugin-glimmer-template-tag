@@ -59,7 +59,7 @@
     "rollup": "^3.19.1",
     "rollup-plugin-glimmer-template-tag": "workspace:*",
     "rollup-plugin-ts": "^3.2.0",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.0"
   },
   "ember-addon": {
     "version": 2,

@@ -53,7 +53,7 @@
     "prettier": "^2.8.4",
     "rollup": "^3.19.1",
     "rollup-plugin-glimmer-template-tag": "workspace:*",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.0"
   },
   "ember-addon": {
     "version": 2,
