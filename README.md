@@ -1,3 +1,7 @@
+# No longer needed!!
+
+`@embroider/addon-dev` (v4+) now ships with gjs/gts support 🥳
+
 # rollup-plugin-glimmer-template-tag
 
 Rollup plugin for providing `<template>` support for both gjs and gts file formats
