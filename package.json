@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "volta": {
-    "node": "18.16.0"
+    "node": "18.19.0"
   },
   "scripts": {
     "release": "changeset publish",
