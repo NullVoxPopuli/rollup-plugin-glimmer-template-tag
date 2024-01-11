@@ -25,7 +25,7 @@ jobs:
       - uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: NullVoxPopuli/action-setup-pnpm@v2.1.0
+      - uses: NullVoxPopuli/action-setup-pnpm@v2.3.1
 
   lint:
     name: "Lint / Format / Glint"
@@ -36,7 +36,7 @@ jobs:
       - uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: NullVoxPopuli/action-setup-pnpm@v2.1.0
+      - uses: NullVoxPopuli/action-setup-pnpm@v2.3.1
       - name: Lint
         run: pnpm lint
 
@@ -55,7 +55,7 @@ jobs:
       - uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: NullVoxPopuli/action-setup-pnpm@v2.1.0
+      - uses: NullVoxPopuli/action-setup-pnpm@v2.3.1
         with: { node-version: "${{ matrix.node }}" }
       - name: "Test with node ${{ matrix.node }}"
         run: pnpm test
@@ -76,7 +76,7 @@ jobs:
       - uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: NullVoxPopuli/action-setup-pnpm@v2.1.0
+      - uses: NullVoxPopuli/action-setup-pnpm@v2.3.1
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
         with:
